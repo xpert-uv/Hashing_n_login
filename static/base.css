@@ -1,0 +1,13 @@
+
+body{
+    background-color:rgba(8, 8, 14, 0.87);
+    color:white;
+}
+
+
+body .container .login{
+
+    align-content: flex-end;
+
+}
+

@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+{%block link%}
+<link rel="stylesheet" type="text/css" href="../static/home.css">{% endblock %}
+{% block title%}Home{% endblock %}
+{% block content %}
+
+
+<div class="row justify-content-evenly">
+    <div class="col-6">
+        <h1 class='display-1 text-light'>Welcome to FeedBack</h1>
+        <a class="btn btn-outline-secondary" type="button" href='/register'>Sign Up</a>
+    </div>
+    <div class="col-6">
+        <form method="POST">
+            {{form.hidden_tag()}}
+            {% for field in form
+            if field.widget.input_type != 'hidden'%}
+            <div class="col-sm-8">
+                {{field.label(class_="col-sm-2 col-form-label text-light")}}
+                {{field(class_="form-control")}}
+            </div>
+            {%endfor%}
+
+            <button class="btn btn-outline-success mt-3" type='submit'>Log In</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

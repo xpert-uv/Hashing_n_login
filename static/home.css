@@ -1,0 +1,14 @@
+body .container{
+    height:30em;
+    background-size:cover;
+    position: center;
+    margin-top:5em;
+    margin-bottom: 5em;
+    border:solid whitesmoke 3px;
+    background-image: url(https://images.unsplash.com/photo-1595246007497-15e0ed4b8d96?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Ym94fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60);
+   
+}
+body .container .msg{
+    display: none;
+    
+}
