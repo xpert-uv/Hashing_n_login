@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{%block title%}Edit FeedBack{%endblock%}
+
+{%block content%}
+<div class='container' style="background: rgba(251, 251, 251, 0.4);">
+    <h1 class="display-1">Edit FeedBack</h1>
+    <form method="POST">
+        {{form.hidden_tag()}}
+
+        {% for field in form
+        if field.widget.input_type != 'hidden'%}
+        <div class="col-sm-8">
+            {{field.label(class_="col-sm-2 col-form-label text-light")}}
+            {{field(class_="form-control")}}
+        </div>
+        {% endfor %}
+        <a type="button" class="btn btn-danger my-3" href='/feeds'>Cancel</a>
+        <button class="btn btn-success my-3" type="submit">Save</button>
+    </form>
+</div>
+{%endblock%}

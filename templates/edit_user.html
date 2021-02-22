@@ -1,16 +1,13 @@
-{% extends 'base.html'%}
-{% block title%}Sign UP{% endblock %}
-
-
+{% extends "base.html"%}
+{% block title %}Edit User{% endblock %}
 {% block content%}
-<div class=" col-10  mx-3 my-3" style=" background: rgba(251, 251, 251, 0.4);">
-    <h1 class="display-1">Sign Up</h1>
+<div class=" col-6" style=" background: rgba(251, 251, 251, 0.4);">
+    <h1 class='display-1'>{{form.username.data}} Edit</h1>
     <form method="POST">
         {{form.hidden_tag()}}
         {% for field in form
         if field.widget.input_type != 'hidden'%}
-        <div class="col-sm-8 mx-2">
-
+        <div class="col-sm-8">
             {{field.label(class_="col-sm-2 col-form-label text-light")}}
             {{field(class_="form-control")}}
 
@@ -20,8 +17,8 @@
         </div>
         {% endfor %}
 
-        <a type="button" class="btn btn-danger my-3 mx-2" href='/'>Cancel</a>
-        <button class="btn btn-outline-success my-3 mx-2" type="submit">Sign Up</button>
+        <a type="button" class="btn btn-danger mt-3" href='/'>Cancel</a>
+        <button class="btn btn-outline-success mt-3" type="submit">Sign Up</button>
     </form>
 </div>
-{% endblock%}
+{% endblock %}

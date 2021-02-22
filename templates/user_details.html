@@ -1,0 +1,42 @@
+{%extends "feeds.html"%}
+{%block title%}User Detail{%endblock%}
+{%block content%}
+
+
+<div class="row justify-content-evenly " style=" background: rgba(251, 251, 251, 0.4);">
+
+    <div class="col-6 " style=" background: rgba(251, 251, 251, 0.4);">
+        <h1 class='display-1'>{{form.username.data}} Details</h1>
+        {{form.hidden_tag()}}
+        {% for field in form
+        if field.widget.input_type != 'hidden'%}
+        <div class="col-sm-8 my-2">
+            {{field.label(class_="col-sm-2 col-form-label text-light")}}
+            {{field(class_="form-control")}}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-6">
+        <h2 class="display-2">Posts</h2>
+        {%for feed in feeds%}
+
+        <div class="card text-dark mt-2 my-2" style=" background: rgba(251, 251, 251, 0.4);">
+            <div class="card-body text-light">
+                <h4 class="display-4">{{feed.title}}</h4>
+
+
+                <p>{{feed.content}}</p>
+
+                <form action="/feeds/{{feed.id}}" method='POST'>
+                    <small style="display: inline-block;"><a class="btn btn-primary" type="button"
+                            href="/feedback/{{feed.id}}/edit"><i class=" bi bi-pencil-fill"></i></a></small>
+                    <small style="display: inline-block;"><button class="btn btn-danger" type="submit"><i
+                                class="bi bi-trash-fill"></i></button></small>
+                </form>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+{%endblock%}

@@ -11,7 +11,8 @@
         <a class="btn btn-outline-secondary" type="button" href='/register'>Sign Up</a>
     </div>
     <div class="col-6">
-        <form method="POST">
+
+        <form action="/login" method="POST">
             {{form.hidden_tag()}}
             {% for field in form
             if field.widget.input_type != 'hidden'%}
@@ -25,12 +26,4 @@
         </form>
     </div>
 </div>
-
-
-
-
-
-
-
-
 {% endblock %}

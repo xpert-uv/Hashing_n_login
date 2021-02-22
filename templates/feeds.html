@@ -1,0 +1,25 @@
+{%extends'base.html'%}
+{%block title%}Feeds{%endblock%}
+{%block content%}
+
+
+{% for feed in feeds%}
+<div class="card text-dark mt-2 " style="background: rgba(251, 251, 251, 0.4);">
+    <div class="card-body text-light">
+        <h4 class="display-4">{{feed.title}}</h4>
+
+
+        <p>{{feed.content}}</p>
+        {% if feed.username == session['username']%}
+
+        <form action="/feeds/{{feed.id}}" method='POST'>
+            <small style="display: inline-block;"><a class="btn btn-primary" type="button"
+                    href="/feedback/{{feed.id}}/edit"><i class="bi bi-pencil-fill"></i></a></small>
+            <small style="display: inline-block;"><button class="btn btn-danger" type="submit"><i
+                        class="bi bi-trash-fill"></i></button></small>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{%endfor%}
+{%endblock%}
